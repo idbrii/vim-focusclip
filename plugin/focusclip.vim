@@ -13,7 +13,7 @@ finish
 if exists('loaded_focusclip') || &cp || version < 700
     finish
 elseif match(&clipboard, 'unnamed') >= 0
-    echoerr "Autoclip does not work with clipboard=unnamed(plus)"
+    echoerr "Autoclip does not work with clipboard=unnamed(plus). Aborting."
     finish
 endif
 let loaded_focusclip = 1
