@@ -47,6 +47,28 @@ Vim built with `+clipboard` on Windows or `+clipboard +xterm_clipboard` on X11 s
 Use gvim or a terminal supporting vim's FocusGained/FocusLost events.
 
 
+## Known Issues
+### Mappings using quoteplus register may not work as desired
+If you have mappings or functions that write to your quoteplus register, that register will be clobbered when you leave vim. You'll see no change in behavior until vim loses focus.
+
+If you have something like this:
+
+    xnoremap <C-c> "+y
+
+You can change it to this:
+
+    " Put in unnamed and plus registers so available within and outside vim.
+    xnoremap <C-c> "+ygvy
+
+Or just remove the map and use `y`.
+
+To check if you have any maps that yank to the quoteplus register, you can use hasmapto:
+
+    echo hasmapto('"+y')
+
+You can grep your vimfiles for `let @+` to look for functions that write to quoteplus.
+
+
 ## Example Usage
 
 FocusClip uses no mappings, so you can copy and paste like normal. Here's some specific examples of how it behaves.
