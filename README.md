@@ -20,12 +20,12 @@ register `@0`.
 
 Finally, I dislike how `clipboard=unnamedplus` redirects `p` to different registers instead of copying content to `@"`:
 
-    $ gvim -Nu NONE +"source ~/.vim/bundle/sensible/plugin/sensible.vim" +"set clipboard=unnamedplus"
-    Copy from external application.
-    `p` in vim and it pastes external yank
-    Type several lines of text
-    Yank a line with `yy`
-    `p` and it pastes the external yank, but I want to put what I just yanked.
+* `$ gvim -Nu NONE +"source ~/.vim/bundle/sensible/plugin/sensible.vim" +"set clipboard=unnamedplus"`
+* Copy from external application.
+* `p` in vim and it pastes external yank
+* Type several lines of text
+* Yank a line with `yy`
+* `p` and it pastes the external yank, but I want to put what I just yanked.
 
 
 ## Desired Behavior
