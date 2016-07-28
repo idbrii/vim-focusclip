@@ -13,17 +13,15 @@ function! focusclip#on_gain_focus()
     " If there was a change to the system clipboard register since last time
     " we gained focus, apply it to unnamed register.
 
-
-    " Update last yank on every entry so when we re-enter vim and yank
-    " something different from the clipboard, it always will be applied to the
-    " clipboard.
-    " Alternatively, move this to after the if?
-    let g:focusclip_last_yank = @+
-
     if g:focusclip_system == @+
         return
     endif
     let g:focusclip_system = @+
+
+    " Update last yank in sync with focusclip_system so when we re-enter vim
+    " and yank something different from the clipboard, it always will be
+    " applied to the clipboard.
+    let g:focusclip_last_yank = @+
 
     let @" = @+
 endf
